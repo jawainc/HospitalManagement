@@ -1,0 +1,9 @@
+<div id="toast_container" style='position: fixed; top:70px; right:0; width: 500px; '></div>
+
+<paper-toast #toast_success   class="success" text=""></paper-toast>
+<paper-toast #toast_error class="error" text=""></paper-toast>
+<paper-toast #toast_info class="info" text=""></paper-toast>
+<paper-toast #toast_alert class="alert" text=""></paper-toast>
+<paper-toast #toast_danger class="danger" duration="0" text="">
+  <paper-button (click)="toast_danger.toggle()" class="yellow-button">Close now!</paper-button>
+</paper-toast>

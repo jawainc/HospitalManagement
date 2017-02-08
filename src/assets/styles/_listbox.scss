@@ -1,0 +1,17 @@
+.list-box-container{
+  position: absolute;
+  width: 100%;
+  display: none;
+  z-index: 500;
+  paper-listbox{
+    paper-item{
+      border-top: $border;
+      &:first-child{
+        border-top: none;
+      }
+      &:hover{
+        background-color: $lighten-grey;
+      }
+    }
+  }
+}

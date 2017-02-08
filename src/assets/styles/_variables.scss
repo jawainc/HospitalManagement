@@ -1,0 +1,119 @@
+/**
+* Fonts
+ */
+
+
+
+/**
+*colors
+ */
+$red-color: #E53935;
+$blue-color: #1976D2;
+$dark-blue-color: #0D47A1;
+$light-blue-color: #42A5F5;
+$green-color: #388E3C;
+$dark-green-color: #1B5E20;
+$light-green-color: #66BB6A;
+$teal-color: #00796B;
+$orange-color: #FB8C00;
+$deep-orange-color: #E64A19;
+$deep-orange-a-color: #DD2C00;
+$yellow-color: #FDD835;
+$grey-color: #757575;
+$dark-grey: #424242;
+$light-grey: #E0E0E0;
+$lighten-grey: #F5F5F5;
+$blue-grey:#546E7A;
+$dark-blue-grey: #263238;
+$light-blue-grey: #90A4AE;
+$lighten-blue-grey: #CFD8DC;
+
+$black-color: #000000;
+$white-color: #ffffff;
+
+$nav-bar-color: $green-color;
+$side-bar-color: $teal-color;
+$border: 1px solid $light-grey;
+
+$global-distance: 25px;
+
+
+
+.success {
+  background-color: $green-color;
+  color: $white-color;
+}
+.error {
+  background-color: $deep-orange-color;
+  color: $white-color;
+}
+.danger {
+  background-color: $deep-orange-a-color;
+  color: $white-color;
+}
+.alert{
+  background-color: $yellow-color;
+  color: $dark-grey;
+}
+.info{
+  background-color: $light-blue-color;
+  color: $white-color;
+}
+
+/**
+* Height
+ */
+.full-height{
+  height: 100%;
+  display: flex;
+}
+
+/**
+* Widths
+ */
+.full-width{
+  width: 100%;
+}
+.w-60{
+  width: 60px;
+}
+.w-120{
+  width: 120px;
+}
+.w-180{
+  width: 180px;
+}
+.w-240{
+  width: 240px;
+}
+.w-300{
+  width: 300px;
+}
+.w-360{
+  width: 360px;
+}
+
+/**
+* Padding
+ */
+.pad-0{
+  padding: 0;
+}
+.pad-10{
+  padding: 10px;
+}
+.pad-20{
+  padding: 20px;
+}
+.pad-30{
+  padding: 30px;
+}
+.pad-40{
+  padding: 40px;
+}
+ /**
+ * Border
+  */
+.border{
+  border: $border;
+}

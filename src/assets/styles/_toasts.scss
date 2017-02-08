@@ -1,0 +1,22 @@
+paper-toast{
+  &.success{
+    @extend .success;
+  }
+  &.error{
+    @extend .error;
+  }
+  &.info{
+    @extend .info;
+  }
+  &.alert{
+    @extend .alert;
+  }
+  &.danger{
+    @extend .danger;
+  }
+
+  paper-button{
+    text-transform: none;
+    color: $yellow-color;
+  }
+}

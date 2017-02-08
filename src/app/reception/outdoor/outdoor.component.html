@@ -1,0 +1,189 @@
+<div class="full-width">
+  <header class="hero backgroud-dark">
+    <h1 class="hero-title">
+      {{main_title}}
+    </h1>
+    <div class="clearfix"></div>
+    <h2 class="hero-subtitle">
+      {{sub_title}}
+    </h2>
+  </header>
+</div>
+
+
+<div class="clearfix"></div>
+
+<div class="full-width">
+  <div class="row center-xs middle-xs full-width">
+    <div class="col-xs-12 col-md-8 col-lg-6">
+      <div class="box border form-box text-left">
+
+        <form is="iron-form" [formGroup]="dform">
+          <fieldset>
+            <legend>Patient</legend>
+
+            <div class="row">
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input  allowed-pattern="[0-9]" [(ngModel)]="model.phone_number"  required  label="Patient Phone Number" ngDefaultControl formControlName="phone_number"
+                                (keyup)="searchPhones()"
+                                errorMessage="{{ formErrors.phone_number }}"
+                                [invalid] = "formErrors.phone_number"
+                  >
+                    <div suffix>
+                      <paper-spinner-lite alt="Loading..." class="grey" [active]="LoadingPhones"  ></paper-spinner-lite>
+                    </div>
+                  </paper-input>
+
+                  <div class="list-box-container raised-1" [ngClass]="{'show': ShowPhoneList }" >
+                    <paper-listbox  >
+                      <paper-item (click)="phoneSelected(item)" *ngFor="let item of PhonesData">{{item.group}}</paper-item>
+                    </paper-listbox>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input  label="Patient Name" ngDefaultControl formControlName="patient_name" required [(ngModel)]="model.patient_name" (keyup)="searchPatient()"
+                                errorMessage="{{ formErrors.patient_name }}"
+                                [invalid] = "formErrors.patient_name"
+                  ></paper-input>
+
+                  <div class="list-box-container raised-1" [ngClass]="{'show': ShowPatientNameList }" >
+                    <paper-listbox  >
+                      <paper-item (click)="PatientSelected(item)" *ngFor="let item of PatientData">{{item.name}}</paper-item>
+                    </paper-listbox>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input   label="Age" ngDefaultControl formControlName="age" [(ngModel)]="model.patient_age" ></paper-input>
+                </div>
+              </div>
+
+              <div class="col-xs">
+                <div class="box">
+                  <vaadin-combo-box label="Gender" [items]="genders" ngDefaultControl formControlName="gender" [(ngModel)]="model.patient_gender" ></vaadin-combo-box>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input  label="N.I.C" ngDefaultControl formControlName="nic" [(ngModel)]="model.nic" ></paper-input>
+                </div>
+              </div>
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-textarea label="Address"  ngDefaultControl formControlName="address" [(ngModel)]="model.patient_address" ></paper-textarea>
+                </div>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Doctor</legend>
+
+            <div class="row">
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input label="Doctor" ngDefaultControl formControlName="doctor" required [(ngModel)]="DoctorName"
+                               errorMessage="{{ formErrors.doctor }}"
+                               [invalid] = "formErrors.doctor"
+                  >
+                    <paper-icon-button suffix icon="clear" (click)="clearDoctor()" class="clear second-button {{showDocClear ? 'show':'hidden'}}" ></paper-icon-button>
+                    <paper-icon-button suffix class="popup"  icon="vaadin-icons:modal-list" (click)="openDoctorGrid()" ></paper-icon-button>
+                  </paper-input>
+
+                </div>
+              </div>
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input  label="Fee" allowed-pattern="[0-9]" ngDefaultControl formControlName="fee"  [(ngModel)]="DoctorFee" ></paper-input>
+                </div>
+              </div>
+
+            </div>
+
+
+          </fieldset>
+
+          <fieldset>
+            <legend>Total</legend>
+
+            <div class="row">
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-input #disount
+                               label="Discount"
+                               [(value)]="model.discount"
+                               (change) = "changeDiscount(disount.value)"
+                               ngDefaultControl
+                               formControlName="discount"
+                               errorMessage="{{ formErrors.discount }}"
+                               [invalid] = "formErrors.discount"
+                  ></paper-input>
+                </div>
+              </div>
+
+              <div class="col-xs">
+                <div class="box total-amount">
+                  RS. {{TotalFee}}
+                </div>
+              </div>
+
+            </div>
+
+
+          </fieldset>
+
+          <fieldset>
+            <legend> </legend>
+
+            <div class="row">
+
+              <div class="col-xs">
+                <div class="box">
+                  <paper-button class="blue-button">Submit</paper-button>
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+          </fieldset>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<toasts></toasts>
+
+<doctor-selecter (onDoctorsSelected)="doctorsSelected($event)" [reset]="resetDoctors" ></doctor-selecter>
+
+
+
+

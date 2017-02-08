@@ -1,0 +1,66 @@
+<div class="row align-center login-container">
+  <div class="column small-12 medium-8 large-6 align-self-middle login-form-container">
+
+    <div class="callout large secondary">
+
+        <!--Form heading start-->
+        <h1 class="text-center">
+          <i class="fa fa-hospital-o" aria-hidden="true"></i> {{title}}
+        </h1>
+        <!--Form heading end-->
+
+
+
+        <!--Login Form Start-->
+        <form [formGroup]="loginForm">
+
+            <!--Form Submit Error Start-->
+            <div class="alert callout" data-closable [class.hide]="!submitError">
+                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{submitErrorText}}</p>
+
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Form Submit Error End-->
+
+
+            <!--Username Field Start-->
+            <label>
+
+              <input type="text" formControlName="login_id" id="login_id" placeholder="login id"
+                  required
+                  [class.required] = "formErrors.login_id"
+               />
+              <i class="fa fa-user login-field-icon" aria-hidden="true"></i>
+              <span *ngIf="formErrors.login_id" class="required"><small>{{ formErrors.login_id }}</small></span>
+            </label>
+            <!--Username Field End-->
+
+            <!--Password Field Start-->
+            <label>
+
+              <input type="password" name="login_id" id="login_id" placeholder="password" formControlName="password"
+               required
+               [class.required] = "formErrors.password"
+                />
+              <i class="fa fa-lock login-field-icon" aria-hidden="true"></i>
+              <span *ngIf="formErrors.password" class="required"><small>{{ formErrors.password }}</small></span>
+            </label>
+            <!--Password Field End-->
+
+            <!--Form submit button-->
+            <button type="button" (click)="onSubmit()" class="button black" [disabled]="!loginForm.valid || submitted">Submit</button>
+            <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw" [class.hide]="!submitted" ></i>
+
+        </form>
+        <!--Login Form End-->
+    </div>
+
+
+
+  </div>
+
+</div>
+
+

@@ -1,0 +1,34 @@
+
+<paper-dialog #addSelectedDialog id="addSelectedDialog"  class="select" modal>
+  <h3>Select Doctor</h3>
+
+
+  <div class="dialog-contents">
+    <div class="spinner-h-v-center-align dialogLoader" [class.hidden]="!dialogLoader" >
+      <paper-spinner-lite alt="Loading..."  active></paper-spinner-lite>
+    </div>
+
+
+
+    <paper-input  label="Filter By Name" (keyup)="filterDialogList($event)" ></paper-input>
+    <vaadin-grid #docGrid [items]="displayedDoctorData" visible-rows="5" >
+      <table>
+        <colgroup>
+          <col sortable name="name">
+
+
+        </colgroup>
+      </table>
+    </vaadin-grid>
+  </div>
+
+
+
+
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button [disabled]="dialogLoader" (click)="doctorSelected()"  >Add Selected</paper-button>
+  </div>
+</paper-dialog>
+
+

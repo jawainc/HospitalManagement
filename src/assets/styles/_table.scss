@@ -1,0 +1,37 @@
+table{
+  width: 100%;
+
+  thead{
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 2px 0 rgba(0, 0, 0, 0.075), 0 3px 0 rgba(0, 0, 0, 0.05), 0 4px 0 rgba(0, 0, 0, 0.015);
+    box-sizing: border-box;
+    z-index: 10;
+
+    tr{
+      height: 30px;
+      width: 100%;
+    }
+    th{
+      height: 30px;
+      text-align: left;
+      font-weight: 500;
+      color: $grey-color;
+      vertical-align: middle;
+      padding: 10px;
+    }
+  }
+  tbody{
+    tr{
+      height: 25px;
+      width: 100%;
+    }
+    th{
+      height: 25px;
+      text-align: left;
+      font-weight: lighter;
+      color: $black-color;
+      vertical-align: middle;
+      padding: 10px;
+      border-bottom: 1px solid $lighten-grey;
+    }
+  }
+}

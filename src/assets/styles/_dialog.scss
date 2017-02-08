@@ -1,0 +1,49 @@
+paper-dialog{
+
+
+
+  h3{
+    margin-top: 0 !important;
+    padding: 10px !important;
+    font-weight: normal;
+  }
+  .dialog-contents{
+    position: relative;
+  }
+  .dialogLoader{
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    width: calc(100% - 48px);
+  }
+  &.delete{
+    min-width: 400px;
+    h3{
+      color: $white-color;
+      background-color: $deep-orange-a-color;
+    }
+  }
+
+  &.select{
+    min-width: 400px;
+    h3{
+      color: $white-color;
+      background-color: $light-blue-color;
+    }
+
+  }
+
+
+  vaadin-grid{
+    width: 600px;
+
+  }
+
+  .action-bar{
+    margin-top: $global-distance !important;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+  }
+
+}

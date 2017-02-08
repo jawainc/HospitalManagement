@@ -1,0 +1,42 @@
+form{
+  padding: $global-distance;
+
+}
+
+fieldset{
+
+  border: none;
+  legend{
+    padding: $global-distance/2 $global-distance/3;
+    background: $lighten-grey;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 200;
+    width: 100%;
+  }
+}
+
+paper-input{
+  &.search{
+    width: 300px;
+  }
+}
+
+paper-dialog{
+  paper-input{
+    min-width: 250px;
+  }
+}
+
+.total-amount{
+  text-align: right;
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+.form-box{
+  margin-bottom: $global-distance;
+}

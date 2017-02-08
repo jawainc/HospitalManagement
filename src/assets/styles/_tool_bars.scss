@@ -1,0 +1,50 @@
+
+paper-toolbar{
+  background: $nav-bar-color;
+  a{
+    -webkit-font-smoothing: antialiased;
+    color: $white-color;
+    text-decoration: none;
+    opacity: 0.6;
+    text-align: center;
+    margin-right: 40px;
+
+    .menu-text{
+      display: block;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+    }
+    &:hover{
+      opacity: 1;
+    }
+    &.active{
+      opacity: 1;
+    }
+  }
+  &.grey{
+    background-color: $light-grey;
+    color: $black-color;
+  }
+  &.light-grey{
+    background-color: $lighten-grey;
+    color: $black-color;
+  }
+  &.white{
+    background-color: $white-color;
+    color: $black-color;
+  }
+  &.border{
+    border-bottom: 2px solid $lighten-grey;
+  }
+
+
+}
+iron-icon{
+  &.top-menu-icon{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+

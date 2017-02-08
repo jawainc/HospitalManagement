@@ -1,0 +1,43 @@
+
+<paper-header-panel class="flex">
+  <paper-toolbar class="top-menu">
+    <a class="item" [routerLink]="['/reception']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{'exact': true}">
+      <iron-icon icon="vaadin-icons:stethoscope" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >OutDoor</span>
+    </a>
+
+    <a class="item" [routerLink]="['indoor']" [routerLinkActive]="['active']">
+      <iron-icon icon="vaadin-icons:bed" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Indoor</span>
+    </a>
+
+    <a class="item" [routerLink]="['lab']" [routerLinkActive]="['active']">
+      <iron-icon icon="vaadin-icons:flask" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Lab</span>
+    </a>
+
+    <a class="item" [routerLink]="['x-ray']" [routerLinkActive]="['active']">
+      <iron-icon icon="icons:donut-small" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >X-Ray</span>
+    </a>
+
+    <a class="item" [routerLink]="['expenses']" [routerLinkActive]="['active']">
+      <iron-icon icon="vaadin-icons:cash" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Expenses</span>
+    </a>
+
+  </paper-toolbar>
+
+  <div class="page-contents">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</paper-header-panel>
+
+
+
+
+
+
+

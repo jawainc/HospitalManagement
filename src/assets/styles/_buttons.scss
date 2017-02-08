@@ -1,0 +1,125 @@
+.primary-button{
+  background: $dark-blue-grey;
+  color: $white-color;
+  &:hover{
+    background: $blue-grey;
+  }
+}
+
+.green-button{
+  background: $green-color;
+  color: $white-color;
+  &:hover{
+    background: lighten($green-color, 10);
+  }
+}
+
+.blue-button{
+  background: $light-blue-color;
+  color: $white-color;
+  &:hover{
+    background: lighten($light-blue-color, 10);
+  }
+}
+
+.red-button{
+  background: $red-color;
+  color: $white-color;
+  &:hover{
+    background: lighten($red-color, 10);
+  }
+}
+.small-button{
+  font-size: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 30px;
+  iron-icon{
+    width: 11px;
+    height: 11px;
+  }
+  paper-spinner-lite{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
+}
+
+/*
+* paper buttons
+ */
+iron-icon{
+  &.with-text {
+    margin-right: 10px;
+  }
+}
+
+paper-button[disabled]{
+  background: $light-grey;
+  color: $black-color;
+}
+
+paper-button{
+  paper-spinner-lite{
+    margin-right: 10px;
+  }
+  &.primary{
+    @extend .primary-button;
+  }
+  &.green{
+    @extend .green-button;
+  }
+  &.blue{
+    @extend .blue-button;
+  }
+  &.red{
+    @extend .red-button;
+  }
+  &.small{
+    @extend .small-button
+  }
+}
+
+paper-input{
+  paper-icon-button{
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    line-height: 18px !important;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    text-align: center;
+    color: $grey-color;
+    cursor: pointer;
+    margin-top: -1px;
+
+    &.second-button{
+      right: 28px;
+    }
+
+    &:hover{
+      color: $light-blue-color;
+    }
+
+    &.clear{
+      &:hover{
+        color: $deep-orange-a-color;
+      }
+    }
+  }
+}
+
+paper-icon-button{
+
+  &.delete-button{
+    width: 60px;
+    height: 60px;
+    color: $light-grey;
+    &:hover{
+      color: $deep-orange-a-color;
+    }
+
+  }
+
+}

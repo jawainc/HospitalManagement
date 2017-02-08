@@ -1,0 +1,56 @@
+.container{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  width: 60%;
+  @include phone{
+    width: 100%;
+  }
+  @include tablet{
+    width: 90%;
+  }
+  @include laptop{
+    width: 80%;
+  }
+  @include desktop{
+    width: 70%;
+  }
+}
+
+.row{
+  -webkit-flex-direction: row; /* Safari */
+  flex-direction:         row;
+  -webkit-flex-wrap: wrap; /* Safari */
+  flex-wrap:         wrap;
+  &.start{
+    -webkit-justify-content: flex-start; /* Safari */
+    justify-content:         flex-start;
+  }
+  &.end{
+    -webkit-justify-content: flex-end; /* Safari */
+    justify-content:         flex-end;
+  }
+  &.center{
+    -webkit-justify-content: center; /* Safari */
+    justify-content:         center;
+  }
+  &.space-between{
+    -webkit-justify-content: space-between; /* Safari */
+    justify-content:         space-between;
+  }
+  &.space-around{
+    -webkit-justify-content: space-around; /* Safari */
+    justify-content:         space-around;
+  }
+}
+
+.column{
+  flex-direction: column;
+}
+
+.item-center{
+  align-self: center;
+  margin: 0 auto;
+}
+

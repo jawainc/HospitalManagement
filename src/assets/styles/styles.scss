@@ -1,0 +1,172 @@
+@import "variables";
+@import "mixin";
+@import "buttons";
+@import "form";
+@import "tool_bars";
+@import "dialog";
+@import "toasts";
+@import "table";
+@import "fonts";
+@import "listbox";
+
+body{
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-center{
+  text-align: center;
+}
+.hidden{
+  display: none !important;
+}
+.show{
+  display: block !important;
+}
+.content-panel{
+  width: 80%;
+}
+
+.clearfix{
+  clear: both;
+}
+.banner {
+  background: rgba(236,239,241,0.24);
+  border-bottom: 1px solid #ECEFF1;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 200;
+  padding: 32px 48px;
+  min-height: 97px;
+}
+/**
+* Shadows (raised Effect)
+ */
+.raised-1{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+/**
+* page Contents
+ */
+
+.page-contents{
+
+  height: 100%;
+
+}
+
+.box{
+  padding: $global-distance/2;
+  position: relative;
+}
+
+.left-sidebar{
+
+  background-color: $side-bar-color;
+  color: $white-color;
+  height: 100%;
+  position: fixed;
+  width: 100px;
+  float: left;
+
+  ul{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    list-style: none;
+
+    li{
+      display: block;
+      text-align: center;
+      position: relative;
+      &:first-child a{
+        padding-top: 30px;
+      }
+      a{
+        padding: 20px 10px;
+        display: block;
+        font-size: 13px;
+        color: $white-color;
+        text-decoration: none;
+        opacity: 0.4;
+        text-align: center;
+        span{
+          display: block;
+        }
+        &:hover{
+          opacity: 1;
+        }
+        &.active{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}
+.container-with-side-bar{
+  float: left;
+  flex: 1;
+  margin-left: 100px;
+}
+
+/**
+* Hero
+ */
+.hero {
+  box-sizing: border-box;
+  box-shadow: none;
+  padding: $global-distance;
+  position: relative;
+  margin-bottom: $global-distance;
+  width: 100%;
+  .hero-title {
+    display: inline-block;
+    font-size: 28px;
+    font-weight: 400;
+    float: left;
+    line-height: 48px;
+    margin: 0 8px 0 0;
+    text-transform: uppercase;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+.backgroud-dark{
+  background-color: $nav-bar-color;
+  background: -webkit-linear-gradient(305deg,$dark-green-color,$light-green-color);
+  background: linear-gradient(145deg,$dark-green-color,$light-green-color);
+  color: $white-color;
+}
+
+.page-header{
+  min-height: 120px;
+  background-color: $lighten-grey;
+  color: $blue-color;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  margin-left: -.5rem;
+  h1{
+    font-weight: lighter;
+    font-size: 35px;
+  }
+
+
+}
+
+
