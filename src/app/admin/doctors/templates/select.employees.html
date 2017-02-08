@@ -1,0 +1,70 @@
+<div class="box">
+  <paper-toolbar class="white border">
+    <paper-button class="blue small" (click)="addOpen()">Add Assistants</paper-button>
+    <<paper-button class="red small" [disabled]="!isChecked" (click)="removeSelected()">Remove Seleted</paper-button>
+  </paper-toolbar>
+
+  <h3>{{testLabel}}</h3>
+
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Percentage</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor="let doc of selected">
+      <td>
+        <paper-checkbox (change)="checkBoxChanged(doc, $event)" [(ngModel)]="doc.id" ngDefaultControl ></paper-checkbox>
+      </td>
+      <td>{{doc.name}}</td>
+      <td>
+        <paper-input class="table" type="number" [(ngModel)]="doc.percentage"   ngDefaultControl >
+          <div suffix>%</div>
+        </paper-input>
+      </td>
+    </tr>
+
+    </tbody>
+
+  </table>
+</div>
+
+
+
+
+<paper-dialog #addSelectedDialog id="addSelectedDialog"  class="select" modal>
+  <h3>Select Assistants</h3>
+
+
+  <div class="dialog-contents">
+    <div class="spinner-h-v-center-align dialogLoader" [class.hidden]="!dialogLoader" >
+      <paper-spinner-lite alt="Loading..."  active></paper-spinner-lite>
+    </div>
+
+
+
+    <paper-input  label="Filter By Name" (keyup)="filterDialogList($event)" ></paper-input>
+    <vaadin-grid #Grid [items]="displayedData" selection-mode="multi" visible-rows="5" >
+      <table>
+        <colgroup>
+          <col sortable name="name">
+          <col sortable name="percentage">
+
+        </colgroup>
+      </table>
+    </vaadin-grid>
+  </div>
+
+
+
+
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button [disabled]="dialogLoader" (click)="dataSelected()"  >Add Selected</paper-button>
+  </div>
+</paper-dialog>

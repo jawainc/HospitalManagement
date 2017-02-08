@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="content-panel item-center">
+      <paper-toolbar justify="justified" class="light-grey raised-1 ">
+        <paper-input label="Search Employee" class="search" no-label-float >
+          <paper-icon-button suffix icon="vaadin-icons:search" title="Search">
+          </paper-icon-button>
+        </paper-input>
+
+        <paper-button (click) = "openAddDoctorForm()" raised class="green">
+          <iron-icon icon="vaadin-icons:plus" class="with-text"></iron-icon>
+          Add Employee
+        </paper-button>
+      </paper-toolbar>
+
+
+      <div class="page-contents">
+        <vaadin-grid  [items]="employeeData" (selected-items-changed) = "showDetail($event)"  >
+          <table>
+            <colgroup>
+              <col sortable name="name">
+              <col sortable name="phone">
+              <col sortable name="email">
+
+
+            </colgroup>
+          </table>
+        </vaadin-grid>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+

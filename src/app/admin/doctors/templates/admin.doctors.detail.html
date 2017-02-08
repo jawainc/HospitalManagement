@@ -1,0 +1,148 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <form is="iron-form" [formGroup]="dform">
+
+
+      <fieldset>
+
+        <legend>Profile</legend>
+        <div class="row">
+
+          <div class="col-xs">
+            <div class="box">
+              <paper-input formControlName="name" [(ngModel)]="model.name"  required errorMessage="{{ formErrors.name }}" label="Name" [invalid] = "formErrors.name" ngDefaultControl></paper-input>
+            </div>
+          </div>
+
+          <div class="col-xs">
+            <div class="box">
+              <paper-input formControlName="phone" [(ngModel)]="model.phone" label="Phone" allowed-pattern="[0-9]" ngDefaultControl></paper-input>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-xs">
+            <div class="box">
+              <paper-input formControlName="email" [(ngModel)]="model.email" label="Email" ngDefaultControl></paper-input>
+            </div>
+          </div>
+
+          <div class="col-xs">
+            <div class="box">
+              <vaadin-combo-box label="Gender" [(ngModel)]="model.gender" [items]="genders" (selected-item-changed)="selectedGender=$event.detail.value" formControlName="gender" ngDefaultControl></vaadin-combo-box>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+
+
+          <div class="col-xs">
+            <div class="box">
+              <paper-textarea label="Address"  [(ngModel)]="model.address" formControlName="address" ngDefaultControl></paper-textarea>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </fieldset>
+
+
+      <fieldset>
+
+        <legend>Work</legend>
+
+
+
+        <div class="row">
+
+
+
+          <div class="col-xs">
+            <div class="box">
+              <paper-input formControlName="percentage" [(ngModel)]="model.percentage" label="Percentage Share" allowed-pattern="[0-9]" ngDefaultControl>
+                <div suffix>%</div>
+              </paper-input>
+            </div>
+          </div>
+
+          <div class="col-xs">
+            <div class="box">
+              <paper-input formControlName="fee" label="Fee" [(ngModel)]="model.fee" allowed-pattern="[0-9]" ngDefaultControl>
+
+              </paper-input>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs">
+            <div class="box">
+              <paper-textarea label="Notes" [(ngModel)]="model.notes" formControlName="notes" ngDefaultControl></paper-textarea>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+
+
+
+        </div>
+
+
+
+
+
+
+      </fieldset>
+
+      <fieldset>
+        <div class="row between-xs">
+          <paper-button class="primary" [disabled]="!dform.valid || submitted" raised (click)="onSubmit()">
+            <paper-spinner-lite alt="Loading..." class="grey" [active]="submitted" [class.hidden]="!submitted"></paper-spinner-lite>
+            Add
+          </paper-button>
+
+
+          <paper-icon-button icon="delete" class="delete-button" (click)="confirmDelete()"></paper-icon-button>
+
+        </div>
+      </fieldset>
+
+
+    </form>
+  </div>
+
+  <div class="col-xs-12 col-md-4">
+    <employees-selecter #employeeSelected (onSelected)="employeesSelected($event)" [reset]="resetEmployees"  ></employees-selecter>
+  </div>
+
+</div>
+
+
+
+<paper-dialog id="delDialog" class="delete" modal>
+  <h3>Delete</h3>
+  <h2>Are You Sure?</h2>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm (click)="deleteConfirm()" >OK</paper-button>
+  </div>
+</paper-dialog>
+
+
+
+<toasts></toasts>

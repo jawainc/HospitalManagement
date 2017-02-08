@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-xs-8 col-md4">
+
+
+
+
+
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-6">
+
+              <form is="iron-form" [formGroup]="dform">
+                <paper-input formControlName="name" [(ngModel)]="model.name"  required errorMessage="{{ formErrors.name }}" label="Name" [invalid] = "formErrors.name" ngDefaultControl>
+                  <div suffix>
+                    <paper-spinner-lite alt="Loading..." class="grey" [active]="unique_pending"  ></paper-spinner-lite>
+                  </div>
+                </paper-input>
+              </form>
+
+
+
+
+
+            <doctor-selecter #doctorSelected (onDoctorsSelected)="doctorsSelected($event)" [reset]="resetDoctors"  ></doctor-selecter>
+
+
+
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <fieldset>
+        <div class="row between-xs">
+          <paper-button class="primary" [disabled]="!dform.valid || submitted" raised (click)="onSubmit()">
+            <paper-spinner-lite alt="Loading..." class="grey" [active]="submitted" [class.hidden]="!submitted"></paper-spinner-lite>
+            Add
+          </paper-button>
+
+
+          <paper-icon-button icon="delete" class="delete-button" (click)="confirmDelete()"></paper-icon-button>
+
+        </div>
+      </fieldset>
+
+
+
+  </div>
+</div>
+
+
+<paper-dialog id="delDialog" class="delete" modal>
+  <h3>Delete</h3>
+  <h2>Are You Sure?</h2>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm (click)="deleteConfirm()" >OK</paper-button>
+  </div>
+</paper-dialog>
+
+
+
+<toasts></toasts>

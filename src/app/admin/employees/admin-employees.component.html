@@ -1,0 +1,35 @@
+<div class="full-height">
+  <div class="left-sidebar">
+    <ul>
+      <li>
+        <a [routerLink]="['/admin/employees']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{'exact': true}">
+          <iron-icon icon="vaadin-icons:table" class="top-menu-icon"></iron-icon>
+          <span class="menu-text" >List</span>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['add']" [routerLinkActive]="['active']" >
+          <iron-icon icon="add-box" class="top-menu-icon"></iron-icon>
+          <span class="menu-text" >Add</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="container-with-side-bar">
+
+    <header class="hero backgroud-dark">
+      <h1 class="hero-title">
+        Employees
+      </h1>
+      <div class="clearfix"></div>
+    </header>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+

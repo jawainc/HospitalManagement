@@ -1,0 +1,111 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="content-panel item-center">
+      <paper-toolbar justify="justified" class="light-grey raised-1 ">
+        <paper-input label="Search Doctors" class="search" no-label-float >
+          <paper-icon-button suffix icon="vaadin-icons:search" title="Search">
+          </paper-icon-button>
+        </paper-input>
+
+        <paper-button (click) = "openAddDoctorForm()" raised class="green">
+          <iron-icon icon="vaadin-icons:plus" class="with-text"></iron-icon>
+          Add Doctor
+        </paper-button>
+      </paper-toolbar>
+
+
+      <div class="page-contents">
+        <vaadin-grid  [items]="doctorData" (selected-items-changed) = "showDetail($event)"  >
+          <table>
+            <colgroup>
+              <col sortable name="name">
+              <col sortable name="phone">
+              <col sortable name="email">
+              <col sortable name="address">
+
+            </colgroup>
+          </table>
+        </vaadin-grid>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+
+<paper-dialog id="addDoctorForm" (iron-overlay-closed)="modalClosing()" modal>
+  <h2>{{formTitle}}</h2>
+
+
+  <form [formGroup]="dform">
+
+    <div class="row">
+
+      <div class="col-xs">
+        <div class="box">
+          <paper-input formControlName="name" [value]="model.name" required errorMessage="{{ formErrors.name }}" label="Doctor Name" [invalid] = "formErrors.name" ngDefaultControl></paper-input>
+        </div>
+      </div>
+
+      <div class="col-xs">
+        <div class="box">
+          <paper-input formControlName="phone" [value]="model.phone" label="Phone" allowed-pattern="[0-9]" ngDefaultControl></paper-input>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs">
+        <div class="box">
+          <paper-input formControlName="email" [value]="model.email" label="Email" ngDefaultControl></paper-input>
+        </div>
+      </div>
+
+      <div class="col-xs">
+        <div class="box">
+          <vaadin-combo-box label="Gender" [value]="model.gender" [items]="genders" (selected-item-changed)="selectedGender=$event.detail.value" formControlName="gender" ngDefaultControl></vaadin-combo-box>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs">
+        <div class="box">
+          <paper-textarea label="Address"  [value]="model.address" formControlName="address" ngDefaultControl></paper-textarea>
+        </div>
+      </div>
+
+    </div>
+
+
+  </form>
+
+
+
+
+  <div class="buttons action-bar middle-xs ">
+
+
+      <paper-button class="primary small" [disabled]="!dform.valid || submitted" raised (click)="onSubmit()">
+        <paper-spinner-lite alt="Loading..." class="grey" [active]="submitted" [class.hidden]="!submitted"></paper-spinner-lite>
+        <iron-icon icon="vaadin-icons:plus" class="with-text" [class.hidden]="submitted" ></iron-icon>
+          Add
+      </paper-button>
+
+
+
+    <paper-button class="small" dialog-dismiss>Close</paper-button>
+
+  </div>
+</paper-dialog>

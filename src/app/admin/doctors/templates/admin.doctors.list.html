@@ -1,0 +1,29 @@
+  <div class="row">
+
+    <div class="col-xs-6">
+
+
+
+      <div class="page-contents pad-30">
+        <paper-input  label="Filter By Name" (change)="filter($event)" (keyup)="filter($event)" ></paper-input>
+        <vaadin-grid #grid [items]="displayedData" (selected-items-changed) = "showDetail($event)" >
+          <table>
+            <colgroup>
+              <col sortable name="name">
+              <col sortable name="phone"  >
+              <col sortable name="email" >
+              <col sortable name="fee" >
+              <col sortable name="percentage" >
+
+            </colgroup>
+          </table>
+        </vaadin-grid>
+      </div>
+
+
+
+
+    </div>
+
+
+  </div>

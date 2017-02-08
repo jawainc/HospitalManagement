@@ -1,0 +1,38 @@
+
+<paper-header-panel class="flex">
+  <paper-toolbar class="top-menu">
+    <a class="item" [routerLink]="['/admin']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{'exact': true}">
+      <iron-icon icon="vaadin-icons:dashboard" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Dashboard</span>
+    </a>
+
+    <a class="item" [routerLink]="['departments']" [routerLinkActive]="['active']">
+      <iron-icon icon="vaadin-icons:hospital" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Departments</span>
+    </a>
+
+    <a class="item" [routerLink]="['doctors']" [routerLinkActive]="['active']">
+      <iron-icon icon="vaadin-icons:doctor" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Doctors</span>
+    </a>
+
+    <a class="item" [routerLink]="['employees']" [routerLinkActive]="['active']">
+      <iron-icon icon="vaadin-icons:nurse" class="top-menu-icon"></iron-icon>
+      <span class="menu-text" >Employees</span>
+    </a>
+
+  </paper-toolbar>
+
+  <div class="page-contents">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</paper-header-panel>
+
+
+
+
+
+
+
